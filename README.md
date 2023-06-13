@@ -16,4 +16,4 @@ React
 Webpack
 
 ## Посмотреть проект
-[Место](https://zuevec.github.io/mesto-react-auth/)
+[Место](https://zuevec.github.io/react-mesto-auth/)
