@@ -19,6 +19,7 @@ function Login({ handleLogin, isLoggedIn, isOk, isOpen, onClose, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e);
     if (isValid) {
       handleLogin(values.password, values.email);
     }
@@ -34,7 +35,7 @@ function Login({ handleLogin, isLoggedIn, isOk, isOpen, onClose, error }) {
       <div className="login">
         <div className="login__up-wrapper">
           <h1 className="login__title">Вход</h1>
-          <form className="login__form">
+          <form className="login__form" onSubmit={handleSubmit} noValidate>
             <label className="form__input-label">
               <input
                 type="email"
@@ -73,15 +74,18 @@ function Login({ handleLogin, isLoggedIn, isOk, isOpen, onClose, error }) {
                 {errors.password}
               </span>
             </label>
+
+            <button
+              className={`login__button ${
+                isValid ? '' : 'login__button_disabled'
+              }`}
+              disabled={!isValid}
+              type="submit"
+            >
+              Войти
+            </button>
           </form>
         </div>
-        <button
-          className={`login__button ${isValid ? '' : 'login__button_disabled'}`}
-          disabled={!isValid}
-          onClick={handleSubmit}
-        >
-          Войти
-        </button>
       </div>
       <InfoToolTip
         isOk={isOk}

@@ -31,9 +31,10 @@ function Register({
   return (
     <div>
       <div className="register">
-        <div className="register__up-wrapper">
-          <h1 className="register__title">Регистрация</h1>
-          <form className="register__form">
+        <form className="register__form" onSubmit={handleSubmit} noValidate>
+          <div className="register__up-wrapper">
+            <h1 className="register__title">Регистрация</h1>
+
             <label className="form__input-label">
               <input
                 type="email"
@@ -72,26 +73,25 @@ function Register({
                 {errors.password}
               </span>
             </label>
-          </form>
-        </div>
-        <div className="register__down-wrapper">
-          <button
-            className={`register__button ${
-              isValid ? '' : 'register__button_disabled'
-            }`}
-            disabled={!isValid}
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Зарегистрироваться
-          </button>
-          <p className="register__text">
-            Уже зарегистрированы?{' '}
-            <Link to="/sign-in" className="register__text">
-              Войти
-            </Link>
-          </p>
-        </div>
+          </div>
+          <div className="register__down-wrapper">
+            <button
+              className={`register__button ${
+                isValid ? '' : 'register__button_disabled'
+              }`}
+              disabled={!isValid}
+              type="submit"
+            >
+              Зарегистрироваться
+            </button>
+            <p className="register__text">
+              Уже зарегистрированы?{' '}
+              <Link to="/sign-in" className="register__text">
+                Войти
+              </Link>
+            </p>
+          </div>
+        </form>
       </div>
       <InfoToolTip
         isOk={isOk}
